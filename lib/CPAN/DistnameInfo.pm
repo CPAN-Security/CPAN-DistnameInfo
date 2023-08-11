@@ -86,7 +86,7 @@ sub new {
     s,^(((.*?/)?authors/)?id/)?(?:([A-Z])/(\4[A-Z])/(\5[-A-Z0-9]*)|([A-Z0-9][-A-Z0-9]*))/,,
     and $info{cpanid} = $6 || $7;
 
-  if ($distfile =~ m,([^/]+)\.(tar\.(?:g?z|bz2|xz)|zip|tgz)$,i) { # support more ?
+  if ($distfile =~ m,([^/]+)\.(tar\.(?:g?z|bz2|xz)|zip|tgz|rar)$,i) { # support more ?
     $info{distvname} = $1;
     $info{extension} = $2;
   }

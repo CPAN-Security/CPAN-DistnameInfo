@@ -324,3 +324,13 @@ CPAN/authors/id/M/MI/MINGYILIU/Bio-ASN1-EntrezGene-1.10-withoutworldwriteables.t
 	cpanid		MINGYILIU
 	extension	tar.gz
 	pkgurl		pkg:cpan/MINGYILIU/Bio-ASN1-EntrezGene@1.10-withoutworldwriteables?ext=tar.gz
+
+CPAN/authors/id/J/JH/JHALLOCK/Gtk2-Ex-TimeEntry-0.05.rar
+	filename	Gtk2-Ex-TimeEntry-0.05.rar
+	dist		Gtk2-Ex-TimeEntry
+	maturity	released
+	distvname	Gtk2-Ex-TimeEntry-0.05
+	version		0.05
+	cpanid		JHALLOCK
+	extension	rar
+	pkgurl		pkg:cpan/JHALLOCK/Gtk2-Ex-TimeEntry@0.05?ext=rar
