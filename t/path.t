@@ -404,6 +404,39 @@ CPAN/authors/id/M/MI/MINGYILIU/Bio-ASN1-EntrezGene-1.10-withoutworldwriteables.t
 	pkgurl		pkg:cpan/MINGYILIU/Bio-ASN1-EntrezGene@1.10-withoutworldwriteables
 	SKIP		Custom version number found only on BackPAN
 
+
+CPAN/authors/id/I/IL/ILYAZ/modules/Term-Gnuplot-0.90380906.zip
+	cpanid		ILYAZ
+	dist		Term-Gnuplot
+	distvname	Term-Gnuplot-0.90380906
+	extension	zip
+	filename	modules/Term-Gnuplot-0.90380906.zip
+	fullversion	0.90380906
+	maturity	released
+	pkgurl		pkg:cpan/ILYAZ/Term-Gnuplot@0.90380906?ext=zip
+	version		0.90380906
+
+CPAN/authors/id/S/SA/SANDEEPV/GuiBuilder_v0_3.zip
+	filename	GuiBuilder_v0_3.zip
+	dist		GuiBuilder
+	maturity	released
+	distvname	GuiBuilder_v0_3
+	version		0.03
+	fullversion	v0_3
+	cpanid		SANDEEPV
+	extension	zip
+	pkgurl		pkg:cpan/SANDEEPV/GuiBuilder@0.03?ext=zip
+
+CPAN/authors/id/S/SA/SANDEEPV/GuiBuilder_v0_3.zip
+	filename	GuiBuilder_v0_3.zip
+	dist		GuiBuilder
+	maturity	released
+	distvname	GuiBuilder_v0_3
+	version		0.03
+	cpanid		SANDEEPV
+	extension	zip
+	pkgurl		pkg:cpan/SANDEEPV/GuiBuilder@0.03?ext=zip
+
 CPAN/authors/id/I/IL/ILYAZ/modules/Term-Gnuplot-0.90380906.zip
 	filename	modules/Term-Gnuplot-0.90380906.zip
 	dist		Term-Gnuplot
@@ -430,6 +463,7 @@ CPAN/authors/id/J/JH/JHALLOCK/Gtk2-Ex-TimeEntry-0.05.rar
 	maturity	released
 	distvname	Gtk2-Ex-TimeEntry-0.05
 	version		0.05
+	fullversion	0.05
 	cpanid		JHALLOCK
 	extension	rar
 	pkgurl		pkg:cpan/JHALLOCK/Gtk2-Ex-TimeEntry@0.05?ext=rar
@@ -440,16 +474,51 @@ BDFOY/authors/id/B/BD/BDFOY/Mojolicious-Plugin-DirectoryServer-1.003.tar
 	maturity	released
 	distvname	Mojolicious-Plugin-DirectoryServer-1.003
 	version		1.003
+	fullversion	1.003
 	cpanid		BDFOY
 	extension	tar
 	pkgurl		pkg:cpan/BDFOY/Mojolicious-Plugin-DirectoryServer@1.003?ext=tar
 
 KMACLEOD/Frontier-RPC-0.07b4.tar.gz
+	filename	Frontier-RPC-0.07b4.tar.gz
+	dist		Frontier-RPC
+	maturity	released
+	distvname	Frontier-RPC-0.07b4
+	version		0.07
+	fullversion	0.07b4
+	cpanid		KMACLEOD
+	extension	tar.gz
+	pkgurl		pkg:cpan/KMACLEOD/Frontier-RPC@0.07b4
 
 RTFIREFLY/Frontier-RPC-0.07b4p1.tar.gz
+	filename	Frontier-RPC-0.07b4p1.tar.gz
+	dist		Frontier-RPC
+	maturity	released
+	distvname	Frontier-RPC-0.07b4p1
+	version		0.07
+	fullversion	0.07b4p1
+	cpanid		RTFIREFLY
+	extension	tar.gz
+	pkgurl		pkg:cpan/RTFIREFLY/Frontier-RPC@0.07b4p1
 
 AJPEACOCK/HTML-Table-2.08a.tar.gz
+	filename	HTML-Table-2.08a.tar.gz
+	dist		HTML-Table
+	maturity	released
+	distvname	HTML-Table-2.08a
+	version		2.08
+	fullversion	2.08a
+	cpanid		AJPEACOCK
+	extension	tar.gz
+	pkgurl		pkg:cpan/AJPEACOCK/HTML-Table@2.08a
 
 DANPEDER/MIME-Base32-1.02a.tar.gz
-
-
+	filename	MIME-Base32-1.02a.tar.gz
+	dist		MIME-Base32
+	maturity	released
+	distvname	MIME-Base32-1.02a
+	version		1.02
+	fullversion	1.02a
+	cpanid		DANPEDER
+	extension	tar.gz
+	pkgurl		pkg:cpan/DANPEDER/MIME-Base32@1.02a

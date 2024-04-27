@@ -1,6 +1,8 @@
 0.13 -- ??
 
   * Add support for .tar.xz achives [Ricardo SIGNES]
+  * Add tests for new distname corner cases identified by Tina Müller at SuSE.de [Salve J. Nilsen]
+  * 
 
 0.12 -- Fri Mar 11 17:36:55 CST 2011
 

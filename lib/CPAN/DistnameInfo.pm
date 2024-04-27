@@ -1,7 +1,7 @@
 
 package CPAN::DistnameInfo;
 
-$VERSION = "0.12";
+$VERSION = "0.13";
 use strict;
 
 sub distname_info {
