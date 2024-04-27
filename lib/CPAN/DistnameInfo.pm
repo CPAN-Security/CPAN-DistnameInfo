@@ -58,20 +58,26 @@ sub distname_info {
     $version =~ s/^[-_]+//;
   }
 
+  # Figure ut if this is a development/trial release
   my $dev;
+  my $fullversion = $version;
   if (length $version) {
     if ($file =~ /^perl-?\d+\.(\d+)(?:\D(\d+))?(-(?:TRIAL|RC)\d+)?$/) {
       $dev = 1 if (($1 > 6 and $1 & 1) or ($2 and $2 >= 50)) or $3;
     }
-    elsif ($version =~ /\d\D\d+_\d/ or $version =~ s/-TRIAL[0-9]*$//) {
+    elsif ($version =~ /\d\D\d+_\d/ or $version =~ s/(-TRIAL[0-9]*)$//) {
       $dev = 1;
     }
   }
   else {
     $version = undef;
+    $fullversion = undef;
   }
 
-  ($dist, $version, $dev);
+  # Exceptions for non-standard filenames on BackPAN
+  $version = sprintf("%u.%02u", $1, $2) if $version =~ m/^v(\d+)_(\d+)$/;
+
+  ($dist, $version, $dev, $fullversion);
 }
 
 sub new {
@@ -86,23 +92,28 @@ sub new {
     s,^(((.*?/)?authors/)?id/)?(?:([A-Z])/(\4[A-Z])/(\5[-A-Z0-9]*)|([A-Z0-9][-A-Z0-9]*))/,,
     and $info{cpanid} = $6 || $7;
 
-  if ($distfile =~ m,([^/]+)\.(tar\.(?:g?z|bz2|xz)|zip|tgz|rar)$,i) { # support more ?
+  if ($distfile =~ m,([^/]+)\.(tar(?:\.(?:g?z|bz2|xz))?|zip|tgz|rar)$,i) { # support more ?
     $info{distvname} = $1;
     $info{extension} = $2;
   }
 
-  @info{qw(dist version beta)} = distname_info($info{distvname});
+  @info{qw(dist version beta fullversion)} = distname_info($info{distvname});
   $info{maturity} = delete $info{beta} ? 'developer' : 'released';
 
-  $info{pkgurl} = 'pkg:cpan/'.$info{cpanid}.'/'.$info{dist}.'@'.$info{version}.'?ext='.$info{extension};
+  $info{pkgurl} = 'pkg:cpan/'.$info{cpanid}.'/'.$info{dist}.'@'.$info{fullversion};
+  $info{pkgurl} .= '?ext='.$info{extension} if $info{extension} ne 'tar.gz'; # Most CPAN packages are tarballs
 
   return bless \%info, $class;
 }
 
 sub dist      { shift->{dist} }
 sub version   { shift->{version} }
+sub fullversion { shift->{fullversion} }
+sub normalizedversion { shift->{normalizedversion} }
 sub maturity  { shift->{maturity} }
 sub filename  { shift->{filename} }
+sub basename  { shift->{basename} }
+sub dirname   { shift->{dirname} }
 sub cpanid    { shift->{cpanid} }
 sub distvname { shift->{distvname} }
 sub extension { shift->{extension} }
@@ -133,7 +144,7 @@ CPAN::DistnameInfo - Extract distribution name and version from a distribution f
   my $distvname = $d->distvname; # "CPAN-DistnameInfo-0.02"
   my $extension = $d->extension; # "tar.gz"
   my $pathname  = $d->pathname;  # "authors/id/G/GB/GBARR/..."
-  my $pkgurl    = $d->pkgurl;    # "pkg:cpan/GBARR/CPAN-DistnameInfo@0.02?ext=tar.gz"
+  my $pkgurl    = $d->pkgurl;    # "pkg:cpan/GBARR/CPAN-DistnameInfo@0.02"
 
   my %prop = $d->properties;
 
@@ -158,15 +169,16 @@ The constructor takes a single pathname, returning an object with the following 
 =item cpanid
 
 If the path given looked like a CPAN authors directory path, then this will be the
-the CPAN id of the author.
+the CPAN id of the author. (e.g. 'GBARR')
 
 =item dist
 
-The name of the distribution
+The name of the distribution (e.g. 'CPAN-DistnameInfo')
 
 =item distvname
 
-The file name with any suffix and leading directory names removed
+The file name with any suffix and leading directory names removed.
+(e.g. 'CPAN-DistnameInfo-0.02')
 
 =item filename
 
@@ -185,6 +197,7 @@ The extension of the distribution, often used to denote the archive type (e.g. '
 =item pathname
 
 The pathname that was passed to the constructor when creating the object.
+(e.g. 'authors/id/G/GB/GBARR/CPAN-DistnameInfo-0.02.tar.gz')
 
 =item properties
 
@@ -193,7 +206,11 @@ for the known properties.
 
 =item version
 
-The extracted version
+The extracted version, stripped of additional "version modifier", like "-TRIAL" or "-RC1". If you want the version
+
+=item fullversion
+
+The extracted version, including "version modifiers" like "-TRIAL" or "-RC1". If you just want the version number, use L<version>.
 
 =item pkgurl
 
