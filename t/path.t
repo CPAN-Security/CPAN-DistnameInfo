@@ -522,3 +522,14 @@ DANPEDER/MIME-Base32-1.02a.tar.gz
 	cpanid		DANPEDER
 	extension	tar.gz
 	pkgurl		pkg:cpan/DANPEDER/MIME-Base32@1.02a
+
+HAGGAI/Acme-Base64-v0.0.2.tar.gz
+	filename	Acme-Base64-v0.0.2.tar.gz
+	dist		Acme-Base64
+	maturity	released
+	distvname	Acme-Base64-v0.0.2
+	version		0.0002
+	fullversion	v0.0.2
+	cpanid		HAGGAI
+	extension	tar.gz
+	pkgurl		pkg:cpan/HAGGAI/Acme-Base64@v0.0.2
